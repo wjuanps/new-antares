@@ -10,15 +10,15 @@
                         </li>
                         <li class="list-inline-item">&sdot;</li>
                         <li class="list-inline-item">
-                            <a href="#">Termos de Uso</a>
+                            <a href="terms">Termos de Uso</a>
                         </li>
                         <li class="list-inline-item">&sdot;</li>
                         <li class="list-inline-item">
-                            <a href="#">Politicas de Privacidade</a>
+                            <a href="privacy">Politicas de Privacidade</a>
                         </li>
                         <li class="list-inline-item">&sdot;</li>
                         <li class="list-inline-item">
-                            <a href="#">Sobre</a>
+                            <a href="about">Sobre</a>
                         </li>
                     </ul>
                     <p class="text-muted small mb-4 mb-lg-0">&copy; Antares 2016 - <?= date('Y'); ?>. All Rights Reserved.</p>
