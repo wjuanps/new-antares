@@ -1,5 +1,5 @@
 
-      <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer bg-light">
         <div class="container">
             <div class="row">
@@ -46,6 +46,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="public/js/index.js"></script>
 </body>
 </html>
