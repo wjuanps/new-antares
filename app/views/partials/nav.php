@@ -1,17 +1,15 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand" href="/">Home</a>
-  <form class="form-inline">
-    <input 
-      class="form-control mr-sm-2" 
-      type="search" 
-      placeholder="Search" 
-      aria-label="Search">
-
-    <button 
-      class="btn btn-outline-info my-2 my-sm-0" 
-      type="submit">
+<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+  <div class="container">
+    <a 
+      class="navbar-brand" 
+      href="/">
       
-      Search
-    </button>
-  </form>
+      <img 
+        class="img-fluid"
+        src="public/img/logo.png" 
+        alt="Logo Antares" />
+    </a>
+
+    <a class="btn btn-primary" href="#">Sign In</a>
+  </div>
 </nav>
