@@ -70,7 +70,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="text-info">Como funciona o Antares</h1>
+          <h1 style="color: #275E7C">Como funciona o Antares</h1>
         </div>
       </div>
     </div>
