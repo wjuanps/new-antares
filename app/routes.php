@@ -5,4 +5,7 @@ $router->get('about', 'PagesController@about');
 $router->get('privacy', 'PagesController@privacy');
 $router->get('terms', 'PagesController@terms');
 
+$router->get('teste', 'PagesController@teste');
+
 $router->get('sentiment-analysis', 'SentimentController@index');
+$router->get('get-tweets', 'SentimentController@getTweets');

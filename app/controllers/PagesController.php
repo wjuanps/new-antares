@@ -19,4 +19,8 @@ class PagesController {
   public function terms() {
     return view('terms');
   }
+
+  public function teste() {
+    die(json_encode(array('name' => 'Juan', 'last' => 'Soares')));
+  }
 }

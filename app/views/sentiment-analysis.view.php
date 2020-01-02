@@ -12,10 +12,10 @@
                         <div class="form-row">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
                                 <input 
-                                    name="q" 
+                                    name="q"
+                                    id="q"
                                     type="text" 
                                     class="form-control form-control-lg" 
-                                    value="<?= $q ?>" 
                                     placeholder="Pesquisar por..." />
                             </div>
                             <div class="col-12 col-md-3">
@@ -32,7 +32,7 @@
 
     <section class="features-icons bg-light text-center">
         <div class="container">
-            <h2 class="text-info mb-5">Análise de Sentimentos para '<?= $q ?>'</h2>
+            <h2 class="text-info mb-5">Análise de Sentimentos para '<span id="search"></span>'</h2>
 
             <div class="row">
                 <div class="col-md-6">
@@ -94,35 +94,15 @@
     <section class="features-icons bg-light">
         <div class="container">
             <div class="row table-responsive">
-                <table class="table table-hover table-striped">
+                <table class="table table-hover table-striped" id="table">
                     <thead>
                         <tr>
-                            <th style="border-top: none;" colspan="2">
+                            <th style="border-top: none;" colspan="3">
                                 <h3 class="text-info"><i class="fa fa-twitter"></i>  Alguns tweets analisados</h3>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi quas unde voluptatum nam a? Doloremque...</td>
-                            <td>Positivo</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae repellat eligendi eius autem a accusamus ...</td>
-                            <td>Negativo</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia sed, consectetur similique libero assumenda iste ...</td>
-                            <td>Negativo</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptates harum aut corrupti earum vel ...</td>
-                            <td>Negativo</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, quibusdam dolorum consectetur nobis autem minima ...</td>
-                            <td>Negativo</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

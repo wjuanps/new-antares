@@ -46,7 +46,12 @@
         </div>
     </footer>
 
+    <script src="node_modules/axios/dist/axios.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    <script src="public/js/services/uriService.js"></script>
+    <script src="public/js/services/chartGenerator.js"></script>
     <script src="public/js/index.js"></script>
 </body>
 </html>

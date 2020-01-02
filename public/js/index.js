@@ -1,7 +1,11 @@
+/* eslint-disable no-undef */
 "use strict";
 
 window.onload = function () {
-    genarateChart({
+
+    getTweets();
+
+    chart.generateChart({
         id: "chart",
         type: "bar",
         labels: ["Positivo", "Negativo"],
@@ -27,7 +31,7 @@ window.onload = function () {
         }
     });
 
-    genarateChart({
+    chart.generateChart({
         id: 'chartPie',
         type: 'doughnut',
         labels: ["Positivo", "Negativo"],
@@ -45,20 +49,34 @@ window.onload = function () {
     })
 };
 
-function genarateChart(chart) {
-    var ctx = document.getElementById(chart.id).getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: chart.type,
-        data: {
-            labels: chart.labels,
-            datasets: [{
-                label: chart.label,
-                data: chart.data,
-                backgroundColor: chart.backgroundColor,
-                borderColor: chart.borderColor,
-                borderWidth: chart.borderWidth
-            }]
-        },
-        options: chart.options
-    });
+const getTweets = async () => {
+
+    let parameter = uri.getParameter('q');
+
+    let input  = document.getElementById('q');
+    let search = document.getElementById('search');
+    input.value = parameter;
+    search.textContent = parameter;
+
+    let tweets = 
+        await axios.get('/get-tweets', {
+            params: {
+                q: parameter
+            } 
+        });
+
+    let trs   = tweets.data.tweets.statuses.map(loadTableTweets);
+    let tbody = document.querySelector('#table tbody');
+
+    tbody.innerHTML = trs.join('');
 }
+
+const loadTableTweets = (tweet) => {
+    return `
+        <tr>
+            <td><img class="rounded-circle" src="${ tweet.user.profile_image_url_https }" alt="img"></td>
+            <td>${ tweet.user.name }</td>
+            <td>${ tweet.text }</td>
+        </tr>
+    `;
+};
