@@ -27,7 +27,7 @@ class Twitter {
             "q"           => $q,
             "count"       => $count,
             "result_type" => $resultType,
-            "lang"        => $lang
+            "lang"        => $lang,
         );
     }
 }
