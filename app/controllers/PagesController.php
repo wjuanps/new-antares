@@ -2,29 +2,11 @@
 
 namespace App\Controllers;
 
-use HybridLogic\Classifier\Basic;
-use HybridLogic\Classifier;
+use App\Models\Twitter;
 
 class PagesController {
 
   public function home() {
-
-    $classifier = new Classifier(new Basic);
-
-    $classifier->train("positive", array(
-      'The sun is hot',
-      'It was a warm day in the sun',
-      'This tea is hot!'
-    ));
-
-    $classifier->train("negative", array(
-      'This ice is very cold!',
-      'It\'s cold at night',
-      'Ice formed on my at over night'
-    ));
-
-    // dd($classifier->classify('It was chilly last night'));
-
     return view('home');
   }
 
@@ -38,9 +20,5 @@ class PagesController {
 
   public function terms() {
     return view('terms');
-  }
-
-  public function teste() {
-    die(json_encode(array('name' => 'Juan', 'last' => 'Soares')));
   }
 }

@@ -22,6 +22,20 @@ class Twitter {
         }
     }
 
+    public static function getTweetsTrain($sentiment) {
+        $tweets = App::get('database')
+                      ->select(
+                        "`datasets`", "`text`",
+                        "WHERE `sentiment` = {$sentiment}"
+                      );
+
+        $texts = array_map(function ($tweet) { 
+            return $tweet->text;
+        }, $tweets);
+
+        return $texts;
+    }
+
     protected static function getQueryString($q, $count, $resultType, $lang) {
         return array(
             "q"           => $q,
