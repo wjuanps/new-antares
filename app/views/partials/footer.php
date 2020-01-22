@@ -50,6 +50,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <script src="public/js/services/uriService.js"></script>
     <script src="public/js/services/chartGenerator.js"></script>
     <script src="public/js/index.js"></script>

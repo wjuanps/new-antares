@@ -30,8 +30,9 @@ class SentimentController {
         $tweets = array_map(function ($tweet) use ($classifier) {
             return (
                 (object) array(
-                    "id"           => $tweet->id,
+                    "id"           => $tweet->id_str,
                     "userName"     => $tweet->user->name,
+                    "userProfile"  => $tweet->user->screen_name,
                     "profileImage" => $tweet->user->profile_image_url_https,
                     "text"         => removeLink($tweet->text),
                     "posted_at"    => $tweet->created_at,
@@ -40,11 +41,38 @@ class SentimentController {
             );
         }, $tweets->statuses);
 
-        die(json_encode(array('tweets' => $tweets)));
-        
-        $result = array_reduce($groups, function ($carry, $item) {
-            return $carry += $item['negative'];
+        $positive = $this->getPolarity($tweets, 'positive');
+        $negative = $this->getPolarity($tweets, 'negative');
+
+        $percentPositive = $this->getPercent($positive);
+        $percentNegative = $this->getPercent($negative);
+
+        die(json_encode(array(
+            'tweets' => $tweets,
+            'result' => array(
+                'sentiment'       => $this->getSentiment($positive, $negative),
+                'positive'        => $positive,
+                'negative'        => $negative,
+                'percentPositive' => $percentPositive,
+                'percentNegative' => $percentNegative
+            )
+        )));
+    }
+
+    protected function getPolarity($tweets, $sentiment) : float {
+        $temp = array_reduce($tweets, function ($carry, $item) use ($sentiment) {
+            return $carry += $item->groups[$sentiment];
         });
+
+        return ($temp / count($tweets));
+    }
+
+    protected function getSentiment(float $positive, float $negative) : int {
+        return ($positive > $negative) ? 1 : 0;
+    }
+
+    protected function getPercent($value) {
+        return $value * 100;
     }
 
     protected function trainModel(Classifier $classifier) {
