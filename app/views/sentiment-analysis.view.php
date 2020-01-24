@@ -16,7 +16,8 @@
                                     id="q"
                                     type="text" 
                                     class="form-control form-control-lg" 
-                                    placeholder="Pesquisar por..." />
+                                    placeholder="Pesquisar por..."
+                                    required />
                             </div>
                             <div class="col-12 col-md-3">
                                 <button 

@@ -25,15 +25,30 @@ const getTweets = async () => {
     [...document.getElementsByClassName('data')].forEach(element => element.classList.remove('hidden'));
     [...document.getElementsByClassName('loading')].forEach(element => element.classList.add('hidden'));
 
-    createChartBar(tweets.data.result, chart);
-    createChartPie(tweets.data.result, chart);
+    createChart(tweets.data.result, chart, 'bar');
+    createChart(tweets.data.result, chart, 'pie');
 
     loadSummary(tweets.data.result, tweets.data.tweets);
 
-    let trs   = tweets.data.tweets.map(loadTableTweets);
+    let trs   = tweets.data.tweets.slice(0, 5).map(loadTableTweets);
     let tbody = document.querySelector('#table tbody');
 
     tbody.innerHTML = trs.join('');
+}
+
+const createChart = (result, chart, type) => {
+    switch (type) {
+        case 'bar':
+            createChartBar(result, chart);
+            break;
+    
+        case 'pie':
+            createChartPie(result, chart);
+            break;
+
+        default:
+            break;
+    }
 }
 
 const createChartBar = (result, chart) => {

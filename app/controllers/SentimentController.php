@@ -26,7 +26,7 @@ class SentimentController {
 
         $q = trim(strip_tags(filter_input(INPUT_GET, 'q', FILTER_SANITIZE_STRING)));
 
-        $tweets = Twitter::search($q, 5);
+        $tweets = Twitter::search($q);
         $tweets = array_map(function ($tweet) use ($classifier) {
             return (
                 (object) array(

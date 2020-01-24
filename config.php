@@ -5,7 +5,7 @@ return [
         'name'       => 'db_antares',
         'username'   => 'root',
         'password'   => '',
-        'connection' => 'mysql:host=localhost',
+        'connection' => 'mysql:host=127.0.0.1',
         'options'    => []
     ],
 
