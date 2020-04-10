@@ -30,7 +30,7 @@ const getTweets = async () => {
   createChartBar(tweets.data.result, chart);
   createChartPie(tweets.data.result, chart);
 
-  loadSummary(tweets.data.result, tweets.data.tweets);
+  loadSummary(tweets.data.result, tweets.data.tweets, tweets.data.total);
 
   let trs = tweets.data.tweets.map(loadTableTweets);
   let tbody = document.querySelector("#table tbody");
@@ -48,7 +48,7 @@ const createChartBar = (result, chart) => {
       result.percentPositive.toFixed(2),
       result.percentNegative.toFixed(2),
     ],
-    backgroundColor: ["rgba(75, 192, 192, 0.2)", "rgba(255, 99, 132, 0.2)"],
+    backgroundColor: ["rgba(75, 192, 192, 0.8)", "rgba(255, 99, 132, 0.8)"],
     borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)"],
     borderWidth: 1,
     options: {
@@ -75,20 +75,20 @@ const createChartPie = (result, chart) => {
       result.percentPositive.toFixed(2),
       result.percentNegative.toFixed(2),
     ],
-    backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(255, 99, 132, 0.2)"],
+    backgroundColor: ["rgba(54, 162, 235, 0.8)", "rgba(255, 99, 132, 0.8)"],
     borderColor: ["rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)"],
     borderWidth: 1,
   });
 };
 
-const loadSummary = (result, tweets) => {
+const loadSummary = (result, tweets, total) => {
   let sentimentText = document.getElementById("sentimentText");
   let sentimentNumber = document.getElementById("sentimentNumber");
   let sentimentPositive = document.getElementById("sentimentPositive");
   let sentimentNegative = document.getElementById("sentimentNegative");
   let percentPositive = document.getElementById("percentPositive");
   let percentNegative = document.getElementById("percentNegative");
-  let total = document.getElementById("total");
+  let totalTweets = document.getElementById("total");
 
   sentimentText.textContent = ["Negativo", "Positivo"][result.sentiment];
   sentimentNumber.textContent = result.sentiment;
@@ -96,7 +96,7 @@ const loadSummary = (result, tweets) => {
   sentimentNegative.textContent = result.negative;
   percentPositive.textContent = result.percentPositive.toFixed(2) + "%";
   percentNegative.textContent = result.percentNegative.toFixed(2) + "%";
-  total.textContent = tweets.length;
+  totalTweets.textContent = total;
 };
 
 const loadTableTweets = (tweet) => {

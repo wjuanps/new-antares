@@ -26,7 +26,7 @@ class SentimentController {
 
     $q = trim(strip_tags(filter_input(INPUT_GET, 'q', FILTER_SANITIZE_STRING)));
 
-    $tweets = Twitter::search($q, 5);
+    $tweets = Twitter::search($q, 100);
     $tweets = array_map(function ($tweet) use ($classifier) {
       return (
         (object) array(
@@ -47,8 +47,11 @@ class SentimentController {
     $percentPositive = $this->getPercent($positive);
     $percentNegative = $this->getPercent($negative);
 
+    shuffle($tweets);
+
     die(json_encode(array(
-      'tweets' => $tweets,
+      'total'  => count($tweets),
+      'tweets' => array_slice($tweets, 0, 5),
       'result' => array(
         'sentiment'       => $this->getSentiment($positive, $negative),
         'positive'        => $positive,
