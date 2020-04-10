@@ -20,6 +20,6 @@
     <link rel="stylesheet" href="public/css/styles.css" />
 
   </head>
-<body>
+  <body>
 
 <?php include_once 'app/views/partials/nav.php'; ?>

@@ -18,5 +18,4 @@ class App {
 
     return static::$registry[$key];
   }
-
 }

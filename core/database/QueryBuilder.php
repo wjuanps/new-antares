@@ -12,10 +12,10 @@ class QueryBuilder {
 
   public function select($tabela, $coluna = "*", $where = NULL, $order = NULL, $limit = NULL) {
     try {
-        $statement = $this->pdo->prepare("SELECT {$coluna} FROM {$tabela} {$where} {$order} {$limit}");
-        $statement->execute();
+      $statement = $this->pdo->prepare("SELECT {$coluna} FROM {$tabela} {$where} {$order} {$limit}");
+      $statement->execute();
 
-        return $statement->fetchAll(\PDO::FETCH_CLASS);
+      return $statement->fetchAll(\PDO::FETCH_CLASS);
     } catch (PDOException $e) {
         dd($e->getMessage());
     }
@@ -40,5 +40,4 @@ class QueryBuilder {
 
     $statement->execute($parameters);
   }
-
 }
