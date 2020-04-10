@@ -15,7 +15,8 @@
                   name="q" 
                   type="text" 
                   class="form-control form-control-lg" 
-                  placeholder="Pesquisar por..." />
+                  placeholder="Pesquisar por..."
+                  required />
               </div>
               <div class="col-12 col-md-3">
                 <button type="submit" class="btn btn-block btn-lg btn-primary">Buscar</button>
@@ -118,7 +119,8 @@
                   name="q" 
                   type="text" 
                   class="form-control form-control-lg" 
-                  placeholder="Pesquisar por..." />
+                  placeholder="Pesquisar por..."
+                  required />
               </div>
               <div class="col-12 col-md-3">
                 <button type="submit" class="btn btn-block btn-lg btn-primary">Buscar</button>
