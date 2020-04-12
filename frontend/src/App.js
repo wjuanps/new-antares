@@ -1,8 +1,17 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
-  return <h1>Juan Soares</h1>;
-}
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+
+import Routes from "./routes";
+
+const App = () => (
+  <BrowserRouter>
+    <Nav />
+    <Routes />
+    <Footer />
+  </BrowserRouter>
+);
 
 export default App;

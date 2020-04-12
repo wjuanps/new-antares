@@ -5,7 +5,7 @@
  */
 
 body {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1,
@@ -14,8 +14,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
+}
+
+.showcase-1 {
+  background: url("../img/bg-girl-with-laptop.png") no-repeat center center;
+}
+
+.showcase-2 {
+  background: url("../img/bg-technology.png") no-repeat center center;
+}
+
+.showcase-3 {
+  background: url("../img/bg-success.png") no-repeat center center;
 }
 
 header.masthead {
